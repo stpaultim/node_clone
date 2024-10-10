@@ -244,7 +244,7 @@ function _clone_node_prepare($original_node, $prefix_title = FALSE, $account = N
   $node->name = isset($account->name) ? $account->name : NULL;
   $node->uid = $account->uid;
 
-  $node->created = NULL;
+  $node->created = isset($node->created) ? $node->created : REQUEST_TIME;
   $node->menu = clone_node_clone_menu_link($original_node);
   if (isset($node->book['mlid'])) {
     $node->book['mlid'] = NULL;
